@@ -39,11 +39,11 @@ docker-compose up --build
 Тело запроса:  
 json  
 Копировать код:  
-`{
+{  
   "walletId": "UUID",  
   "operationType": "DEPOSIT" | "WITHDRAW",  
   "amount": 1000  
-} ` 
+}  
 Описание:  
 walletId — уникальный идентификатор кошелька (UUID)  
 operationType — тип операции: пополнение или снятие  
