@@ -26,7 +26,7 @@ public class WalletService {
 
         Optional<Wallet> optionalWallet = walletRepository.findByIdForUpdate(walletId);
         if (optionalWallet.isEmpty()) {
-            throw new WalletNotFoundException("Кошелек не найден " + walletId);
+            throw new WalletNotFoundException("Кошелёк не найден " + walletId);
         }
         Wallet wallet = optionalWallet.get();
 
@@ -50,7 +50,7 @@ public class WalletService {
     public Long getBalance(UUID walletId) throws WalletNotFoundException {
         Optional<Wallet> optionalWallet = walletRepository.findById(walletId);
         if (optionalWallet.isEmpty()) {
-            throw new WalletNotFoundException("Кошелек с UUID: " + walletId + "не найден ");
+            throw new WalletNotFoundException("Кошелек с UUID: " + walletId + " не найден ");
         }
         return optionalWallet.get().getBalance();
     }
