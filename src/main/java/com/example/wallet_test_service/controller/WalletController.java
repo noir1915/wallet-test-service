@@ -21,13 +21,14 @@ public class WalletController {
     public ResponseEntity<?> performOperation(@RequestBody WalletOperationRequest request) {
         walletService.performOperation(request.getWalletId(), request.getOperationType(), request.getAmount());
         log.info("Операция успешно завершена");
+        Long balance = walletService.getBalance(request.getWalletId());
         return ResponseEntity.ok("Операция успешно завершена\n" +
-                "Текущий баланс после операции: " + walletService.getBalance(request.getWalletId()));
+                "Текущий баланс после операции: " + balance);
     }
 
     @GetMapping("/{walletId}")
     public ResponseEntity<?> getBalance(@PathVariable UUID walletId) {
-        return ResponseEntity.ok("UUID: " + walletId + "\n" +
-                "Текущий баланс: " + walletService.getBalance(walletId));
+        Long balance = walletService.getBalance(walletId);
+        return ResponseEntity.ok(new WalletBalanceResponse(walletId, balance));
     }
 }
