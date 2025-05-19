@@ -33,14 +33,12 @@ public class WalletControllerTest {
     @Autowired
     private WalletService walletService;
 
-    // Можно добавить ObjectMapper для сериализации/десериализации JSON
     @Autowired
     private ObjectMapper objectMapper;
 
     @Test
     public void testPerformOperation_Success() throws Exception {
         WalletOperationRequest request = new WalletOperationRequest(/* параметры */);
-        // Можно создать объект с нужными данными
 
         doNothing().when(walletService).performOperation(any(), any(), any());
 
@@ -52,7 +50,7 @@ public class WalletControllerTest {
 
     @Test
     public void testPerformOperation_WalletNotFound() throws Exception {
-        WalletOperationRequest request = new WalletOperationRequest(/* параметры */);
+        WalletOperationRequest request = new WalletOperationRequest();
 
         doThrow(new WalletNotFoundException("Кошелёк не найден")).when(walletService).performOperation(any(), any(), any());
 
