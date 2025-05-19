@@ -35,7 +35,7 @@ docker-compose up --build
 ```
 ## Проверка работы приложения через POSTMAN:  
 ### Создание операции по кошельку  
-* POST `http://localhost:8080/api/v1/wallet` - Cоздание операции по кошельку  
+* POST `http://localhost:8080/api/v1/wallets` - Cоздание операции по кошельку  
 Тело запроса:  
 json  
 Копировать код:  
