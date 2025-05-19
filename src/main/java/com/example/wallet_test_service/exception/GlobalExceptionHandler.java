@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InsufficientFundsException.class)
     public ResponseEntity<ErrorResponse> handleInsufficientFunds(InsufficientFundsException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse("Недостаточно средств для снятия: " + ex.getMessage()));
+                .body(new ErrorResponse("Недостаточно средств для снятия"));
     }
 
     @ExceptionHandler(InvalidOperationException.class)

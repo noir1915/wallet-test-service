@@ -36,7 +36,7 @@ public class WalletService {
         } else if ("WITHDRAW".equalsIgnoreCase(operationType)) {
             log.info("Снятие средств в размере {}", amount);
             if (wallet.getBalance() < amount) {
-                throw new InsufficientFundsException("Недостаточно средств для снятия " + operationType);
+                throw new InsufficientFundsException();
             }
             wallet.setBalance(wallet.getBalance() - amount);
         } else {
@@ -50,7 +50,7 @@ public class WalletService {
     public Long getBalance(UUID walletId) throws WalletNotFoundException {
         Optional<Wallet> optionalWallet = walletRepository.findById(walletId);
         if (optionalWallet.isEmpty()) {
-            throw new WalletNotFoundException("Кошелек не с UUID: " + walletId + "не найден ");
+            throw new WalletNotFoundException("Кошелек с UUID: " + walletId + "не найден ");
         }
         return optionalWallet.get().getBalance();
     }

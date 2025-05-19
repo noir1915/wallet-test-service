@@ -3,8 +3,8 @@ package com.example.wallet_test_service.exception;
 import org.springframework.http.HttpStatus;
 
 public class InsufficientFundsException extends RuntimeException implements CustomWalletException {
-    public InsufficientFundsException(String message) {
-        super(message);
+
+    public InsufficientFundsException() {
     }
 
     @Override
