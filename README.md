@@ -35,12 +35,12 @@ docker-compose up --build
 ```
 ## Проверка работы приложения через POSTMAN:  
 ### Создание операции по кошельку  
-* POST `http://localhost:8080/api/v1/wallets` - Cоздание операции по кошельку  
+* POST `http://localhost:8080/api/v1/wallets` - Создание операции по кошельку  
 Тело запроса:  
 json  
 Копировать код:  
 {  
-  "walletId": "UUID",  
+  "walletId": "11111111-1111-1111-1111-111111111111", 
   "operationType": "DEPOSIT" | "WITHDRAW",  
   "amount": 1000  
 }  
